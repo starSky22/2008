@@ -67,6 +67,7 @@
     */
     
     //函数作用域
+    /*
     function test1(){
       console.log(a)
     }
@@ -75,7 +76,59 @@
       test1()
     }
     test2()   //Uncaught ReferenceError: a is not defined    函数执行时所在的作用域，是定义时的作用域，不是调用时所在的作用域。
+    */
 
+    /*
+    // 函数的属性和方法
+    // name	： 函数名称
+    // length	： 函数参数个数
+    // prototype ： 函数原型
+    // toString()	:  返回函数的代码
+    function test(){
+      var num = 2
+    }
+    console.log(test.name)//test
+    console.log(test.length)//0
+    console.log(test.prototype)//object
+    console.log(test.toString())//function test(){
+                                  //   var num = 2
+                                  // }
+    */
+
+    /*
+    // 对象的属性和方法
+    var obj = {}
+    obj.age = 22
+    obj.sex = '女'
+    console.log(obj) //{age: 22, sex: "女"}
+    // 属性的删除  delete obj.xxx	//删除obj对象中的xxx属性
+      // delete obj.sex
+      console.log(obj) //{age: 22}
+    // 自定义属性  Object.defineProperty()
+    // 属性的四个特征： 
+    // value : 属性的值
+    // configurable： 是否可被 delete 删除
+    // writable：	是否可写
+    // enumerable： 是否可遍历
+    Object.defineProperty(obj,'name',{
+      value:'zhangsan',
+      configurable:false,
+      writable:false,
+      enumerable:false,
+    })
+    console.log(obj) //{age: 22, name: "zhangsan"}
+
+    // 枚举对象
+  // for in
+  for(k in obj){
+    console.log(k,obj[k]) //age 22
+  }
+  // Object.keys
+  console.log(Object.keys(obj)) //["age", "sex"]
+  */
+
+
+    
     </script>
     
 </body>
