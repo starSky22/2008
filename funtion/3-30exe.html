@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1、GIT常用命令
+        /*
+        git init			//初始化 git仓库
+        git status		// 查看仓库状态（未提交 新增 修改的）
+        git add	xxx		// 向仓库中添加xxx(文件、目录)
+        git diff xxx		//查看被修改的内容（自上次commit后）
+        git commit -m "注释"		//提交代码
+        git push		//推送
+        gitignore			//忽略不被追踪的文件（保存忽略的文件）
+        git log				//查看提交记录
+        git long --pretty=oneline
+        git checkout xxx	//撤销未提交的文件修改
+        git remote -v		//查看远程仓库
+        git pull				// 从远程拉代码
+
+        */
+    //    2、函数基本概念
+    // 函数是一段可以反复调用的代码块。函数还能接受输入的参数，不同的参数会返回不同的值
+        // 3、函数声明
+        /*
+        // function关键字
+        function test(){
+
+        }
+        test()//调用
+        // 函数表达式：匿名函数
+        var test = function(){
+
+        }
+        test()//调用
+        // 函数声明提升（函数调用可先于函数声明）
+        fun1() //222
+        function fun1(){
+            console.log(111)
+        }
+        //后声明的函数会覆盖先声明的函数
+        function fun1(){
+            console.log(222)
+        }
+        */
+    //    3、函数调用   函数名+（）
+        /*
+        function test(){
+            console.log(222)
+        }
+        test()//调用  222
+        */
+//    4、函数传值
+        // 值传递   传递基本类型的值    在函数中传递的是一个数值
+        // “值传递”在向参数传递值时，被传递的值会被复制给一个局部变量，
+        // 传递完后两个变量互不相干。
+        /*
+        function add(num){
+            num++
+        }
+        var a = 222
+        add(a)
+        console.log(a)//222
+        // 引用传递：传递引用类型的值   在函数中传递的是一个对象。
+        function add(num){
+            num[0]++
+        }
+        var arr = [22]
+        add(arr)
+        console.log(arr)//[23]
+        // 函数的参数不是必须的  如何使用arguments
+        function test(){
+            return arguments[0]+arguments[1]
+        }
+        var num = test(11,22)
+        console.log(num)//33
+        // 函数的特殊用法
+        // 作为返回值
+        function test1(){
+            function test2(a,b){
+                console.log(a+b)
+            }
+            return test2
+        }
+        test1()(22,33)//55
+        // 作为参数
+        // function test1(add1){
+        //     var a = 11
+        //     var b = 22
+        //     add1(a,b)
+        // }
+        // function test2(num1,num2){
+        //     console.log(num1+num2)
+        // }
+        // test1(test2)
+        */
+        // 立即执行函数
+        /*
+        (function tes(){
+            console.log(222)
+        }())
+        (function test(){
+            console.log(333)
+        })()
+        */
+    //    函数的属性和方法  函数属于对象数据类型，所以包含属性和方法
+    // name	： 函数名称
+	// length	： 函数参数个数
+	// prototype ： 函数原型
+	// toString()	:  返回函数的代码
+        /*
+        function test(){
+    
+        }
+        console.log(test.name)//test
+        console.log(test.length)//0
+        console.log(test.prototype)//object
+        console.log(test.toString())
+        */
+//    5、函数作用域
+    // 函数执行时所在的作用域，是定义时的作用域，不是调用时所在的作用域。
+    /*
+    function fun1(){
+        console.log(a)
+    }
+    function fun2(){
+        var a = 222
+        fun1()
+    }
+    fun2()//a is not defined
+    */
+//    6、闭包
+    /*
+    什么是闭包函数：
+    有权访问另一个函数作用域中的变量的函数（定义在一个函数内部的函数）
+    闭包的应用场景：
+    外部环境可以访问内部环境、封装私有属性、变量常驻内存
+    闭包带来的问题：
+    消耗内存
+    */
+    // 7、自定义对象属性
+    var obj = {}
+    // 属性的添加
+    obj.name = '张三'
+    obj.age = '22'
+    obj.sex = '女'
+    console.log(obj)//{name: "张三", age: "22", sex: "女"}
+    // 自定义属性  Object.defineProperty()
+    Object.defineProperty(obj,name,{
+        value:'李四',
+        configurable:false,//是否可被 delete 删除
+        writable:false,//是否可写
+        enumerable:false,//是否可遍历
+    })
+    console.log(obj)//{name: "张三", age: "22", sex: "女", "": "李四"}
+
+
+    </script>
+
+</body>
+
+</html>
