@@ -55,6 +55,7 @@
     }())
     */
 
+    /*
     function test1(add){
       console.log(111)
       add()
@@ -63,7 +64,17 @@
       console.log(222)
     }
     test1(test2)
+    */
     
+    //函数作用域
+    function test1(){
+      console.log(a)
+    }
+    function test2(){
+      var a = 3
+      test1()
+    }
+    test2()   //Uncaught ReferenceError: a is not defined    函数执行时所在的作用域，是定义时的作用域，不是调用时所在的作用域。
 
     </script>
     
