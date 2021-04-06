@@ -160,7 +160,15 @@
         enumerable:false,//是否可遍历
     })
     console.log(obj)//{name: "张三", age: "22", sex: "女", "": "李四"}
-
+    // 8、枚举
+    /*
+    for(k in obj){
+        console.log(k,obj[k])//name 张三
+                            // age 22
+                            // sex 女
+    }
+    */
+    console.log(Object.keys(obj))
 
     </script>
 
