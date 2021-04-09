@@ -20,39 +20,38 @@
         type: 'get',
         //dataType:'josn',
         success: function (d1) {
-            console.log('第一位密码')
-            console.log(d1)
+            console.log('第一位密码:',d1)
+            document.write('获取四位密码：')
             document.write(d1)
-        }
-    })
-    $.ajax({
-        url: 'http://vue.api.comcto.com/api/password2.php',
-        type: 'get',
-        //dataType:'josn',
-        success: function (d2) {
-            console.log('第二位密码')
-            console.log(d2)
-            document.write(d2)
-        }
-    })
-    $.ajax({
-        url: 'http://vue.api.comcto.com/api/password3.php',
-        type: 'get',
-        //dataType:'josn',
-        success: function (d3) {
-            console.log('第三位密码')
-            console.log(d3)
-            document.write(d3)
             $.ajax({
-                url: 'http://vue.api.comcto.com/api/password4.php',
+                url: 'http://vue.api.comcto.com/api/password2.php',
                 type: 'get',
                 //dataType:'josn',
-                success: function (d4) {
-                    console.log('第四位密码')
-                    console.log(d4)
-                    document.write(d4)
+                success: function (d2) {
+                    console.log('第二位密码:',d2)
+                    document.write(d2)
+                    $.ajax({
+                        url: 'http://vue.api.comcto.com/api/password3.php',
+                        type: 'get',
+                        //dataType:'josn',
+                        success: function (d3) {
+                            console.log('第三位密码:',d3)
+                            document.write(d3)
+                            $.ajax({
+                                url: 'http://vue.api.comcto.com/api/password4.php',
+                                type: 'get',
+                                //dataType:'josn',
+                                success: function (d4) {
+                                    console.log('第四位密码:',d4)
+                                    document.write(d4)
+                                }
+                            })
+                        }
+                    })
                 }
             })
         }
     })
+
+
 </script>
