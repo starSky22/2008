@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery.js"></script>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    $.ajax({
+        url: 'http://vue.api.comcto.com/api/password1.php',
+        type: 'get',
+        //dataType:'josn',
+        success: function (d1) {
+            console.log('第一位密码')
+            console.log(d1)
+            document.write(d1)
+        }
+    })
+    $.ajax({
+        url: 'http://vue.api.comcto.com/api/password2.php',
+        type: 'get',
+        //dataType:'josn',
+        success: function (d2) {
+            console.log('第二位密码')
+            console.log(d2)
+            document.write(d2)
+        }
+    })
+    $.ajax({
+        url: 'http://vue.api.comcto.com/api/password3.php',
+        type: 'get',
+        //dataType:'josn',
+        success: function (d3) {
+            console.log('第三位密码')
+            console.log(d3)
+            document.write(d3)
+            $.ajax({
+                url: 'http://vue.api.comcto.com/api/password4.php',
+                type: 'get',
+                //dataType:'josn',
+                success: function (d4) {
+                    console.log('第四位密码')
+                    console.log(d4)
+                    document.write(d4)
+                }
+            })
+        }
+    })
+</script>
