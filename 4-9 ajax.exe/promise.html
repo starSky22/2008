@@ -12,52 +12,55 @@
 </body>
 </html>
 <script>
+    let pass = []   //保存密码
     new Promise(function (resolve, reject) {
         $.ajax({
             url: 'http://vue.api.comcto.com/api/password1.php',
             type: 'get',
             success: function (date) {
-                resolve(date)
+                console.log('第一位密码：',date)
+                pass.push(date)
+                resolve(pass)
             }
         })
-    }).then(function (d1) {
-        console.log('接收第一步结果：',d1)
-        document.write('最终的密码：'+d1)
+    }).then(function (d) {
         return new Promise(function (resolve, reject) {
             $.ajax({
                 url: 'http://vue.api.comcto.com/api/password2.php',
                 type: 'get',
                 success: function (date) {
-                    resolve(date)
+                    console.log('第二位密码：',date)
+                    pass.push(date)
+                resolve(pass)
                 }
             })
         })
-    }).then(function(d2){
-        console.log('接收第二步结果：',d2)
-        document.write(d2)
+    }).then(function(d){
+        // document.write(d2)
         return new Promise(function(resolve, reject){
             $.ajax({
                 url: 'http://vue.api.comcto.com/api/password3.php',
                 type: 'get',
                 success: function (date) {
-                    resolve(date)
+                    console.log('第三位密码：',date)
+                    pass.push(date)
+                resolve(pass)
                 }
             })
         })
-    }).then(function(d3){
-        console.log('接收第三步结果：',d3)
-        document.write(d3)
+    }).then(function(d){
         return new Promise(function(resolve, reject){
             $.ajax({
                 url: 'http://vue.api.comcto.com/api/password4.php',
                 type: 'get',
                 success: function (date) {
-                    resolve(date)
+                    console.log('第四位密码：',date)
+                    pass.push(date)
+                resolve(pass)
                 }
             })
         })
-    }).then(function(d4){
-        console.log('接收第四步结果：',d4)
-        document.write(d4)
+    }).then(function(d){
+        document.write('最终密码：',d)
     })
 </script>
