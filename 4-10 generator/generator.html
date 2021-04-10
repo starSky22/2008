@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // 语法
+    /*
+    function * hello(){
+        yield "hello"
+        yield "world"
+    }
+    const g = hello()
+    console.log(g.next())//{value: "hello", done: false}
+    console.log(g.next())//{value: "world", done: false}
+    console.log(g.next())//{value: undefined, done: true}
+    */
+    //有return
+    /*
+    function * hello(){
+        yield "hello"
+        yield "world"
+        return "ES6"
+    }
+    const g = hello()
+    console.log(g.next())//{value: "hello", done: false}
+    console.log(g.next())//{value: "world", done: false}
+    console.log(g.next())//{value: "ES6", done: true}
+    */
+
+
+    //for of遍历
+    /*
+    const obj = {
+        name:'zhangsan',
+        age:22,
+        sex:"F"
+    }
+
+    function * it(){
+        const keys = Object.keys(this)
+        for(let k of keys){
+            yield k
+        }
+    }
+    obj[Symbol.iterator] = it
+    for(k of obj){
+        console.log(obj)
+    }
+    */
+   function * it (){
+       yield '111'
+       yield '222'
+       yield '333'
+   }
+   let obj = {}
+   const proto = Object.getPrototypeOf(obj1)
+
+</script>
