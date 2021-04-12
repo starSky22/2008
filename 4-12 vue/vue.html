@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue2.6.12min.js"></script>
+</head>
+<style>
+    div{
+        width: 100px;
+        height: 100px;
+        border: 1px solid #000;
+    }
+    .color1{
+        background-color: blue;
+    }
+    .color2{
+        background-color: yellow;
+    }
+</style>
+<body>
+    <div id="app">
+        <!-- <h2 v-if="me">我好厉害！！！</h2> -->
+        <!-- <img v-bind:src="pic"> -->
+        <!-- <h3>{{msg}}</h3> -->
+        <!-- <input type="text" v-model="msg"> -->
+        <!-- <ul>
+            <li v-for = 'item in list'>
+                {{item.name}} - {{item.age}}
+            </li>
+        </ul> -->
+        <!-- <button v-on:click = "hello">点击</button> -->
+        <div v-bind:class="class2"></div>
+    </div>
+</body>
+</html>
+<script>
+    // 1、语法
+    /*
+    new Vue({
+        el:"#app",
+        data:{
+            msg:"wenyanyan"
+        }
+    })
+    new Vue({
+        el:"#app",
+        data:{
+            msg:"hahahaha"
+        }
+    })
+    */
+    // 2、v-if
+    /*
+    new Vue({
+        el:"#app",
+        data:{
+            me:true
+        }
+    })
+        new Vue({
+            el:"#app",
+            data:{
+                me:true
+            }
+        })
+        new Vue({
+            el:"#app",
+            data:{
+                me:false
+            }
+        })
+        */
+    // 3、v-bind
+    /*
+    new Vue({
+        el:"#app",
+        data:{
+            pic:"../images/banner4.jpg"
+        }
+    })
+    new Vue({
+        el:"#app",
+        data:{
+            pic:"../images/banner4.jpg"
+        }
+    })
+    */
+    // 4、model
+    /*
+    new Vue({
+        el:"#app",
+        data:{
+            msg:"wenyanyan"
+        }
+    })
+    */
+    // 5、v-for
+    /*
+    new Vue({
+        el:"#app",
+        data:{
+            list:[
+                {name:"zhangsan",age:"11"},
+                {name:"lisi",age:"22"}
+            ]
+        }
+    })
+    */
+    // 6、v-on
+    /*
+    new Vue({
+        el:"#app",
+        methods:{
+            hello(){
+                alert(111)
+            }
+        }
+    })
+    new Vue({
+        el:"#app",
+        methods:{
+            hello(){
+                alert(222)
+            }
+        }
+    })
+    */
+    // 7、class与style绑定
+    new Vue({
+        el:"#app",
+        data:{
+            class2:{
+                color1:false,
+                color2:true
+            }
+        }
+    })
+    // 8、过滤器
+    // 9、接口通信
+    axios.get("https").then(function(d){
+        console.log(d)
+    })
+</script>
