@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue2.6.12min.js"></script>
+    <script src="../axios.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <button v-on:click="hello">axios请求后端接口</button>
+        <ul>
+            <li v-for="item in list">
+                ID:{{item.id}} - name:{{item.name}} - age:{{item.age}} - sex:{{item.sex}}
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>
+<script>
+    new Vue({
+        el: "#app",
+        
+        data: {
+            list: []
+        },
+        methods: {
+            hello() {
+                const self = this
+                axios.get("http://vue.api.comcto.com/api/list.php").then(function (d) {
+                    console.log(d)
+                    self.list = d.data
+                })
+            }
+        }
+    })
+</script>
