@@ -15,7 +15,7 @@
         <button v-on:click="hello">axios请求后端接口</button>
         <ul>
             <li v-for="item in list">
-                ID:{{item.id}} - name:{{item.name}} - age:{{item.age}} - sex:{{item.sex}}
+                ID:{{item.id}} - Name:{{item.name}} - Age:{{item.age}} - Sex:{{item.sex}}
             </li>
         </ul>
     </div>
@@ -32,6 +32,8 @@
         methods: {
             hello() {
                 const self = this
+                console.log(this)
+                console.log(self)
                 axios.get("http://vue.api.comcto.com/api/list.php").then(function (d) {
                     console.log(d)
                     self.list = d.data
