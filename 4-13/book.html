@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<style>
+    tr {
+        text-align: center;
+    }
+
+    td {
+        width: 150px;
+        height: 30px;
+    }
+
+    div {
+        width: 600px;
+        margin: auto;
+        text-align: center;
+    }
+
+    .color {
+        background-color: #dfa0a8;
+    }
+</style>
+
+<body>
+    <div id="app">
+        <h2>图书管理</h2>
+        <table border="1" cellspacing="0">
+            <tr class="color">
+                <td colspan="4">
+                    编号：<input type="text" v-model="id">
+                    名称：<input type="text" v-model="name">
+                    <button v-on:click="sub">提交</button>
+                </td>
+            </tr>
+            <tr class="color">
+                <td>编号</td>
+                <td>名称</td>
+                <td>时间</td>
+                <td>操作</td>
+            </tr>
+            <tr v-for="(item,index) in list">
+                <td>{{item.id}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.time}}</td>
+                <td>
+                    <a href="javascript:;">修改</a>
+                    <span>|</span>
+                    <a href="javascript:;" v-on:click ="del(index)">删除</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <script src="../vue2.6.12min.js"></script>
+    <script src="../axios.min.js"></script>
+    <script>
+    new Vue({
+        el: "#app",
+        data: {
+            id : "",
+            name:"",
+            list: []
+        },
+        created(){
+            let self = this
+                axios.get("http://vue.api.comcto.com/api/books.php").then(function(res){
+                    self.list = res.data
+                })
+        },
+        methods: {
+            //添加
+            sub(){
+                let date = new Date()
+                let y = date.getFullYear()
+                let m = date.getMonth()
+                let d = date.getDate()
+                let ymd = `${y}-${m+1}-${d}`
+                this.list.push({id:this.id,name:this.name,time:ymd})
+            },
+            // 删除
+            del(index){
+                this.list.splice(index,1)
+            }
+            
+        },
+        // watch:{
+        //     name(nv,ov){
+        //         let self = this
+        //         axios.get("http://vue.api.comcto.com/api/books.php").then(function(res){
+        //             if(this.id==res.data){
+        //                 alert('id已存在')
+                        
+        //             }else(
+        //                 id=this.id
+        //             )
+        //         })
+        //     }
+        // }
+    })
+
+</script>
+</body>
+
+</html>

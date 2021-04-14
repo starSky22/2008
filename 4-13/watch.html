@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../axios.min.js"></script>
+    <script src="../vue2.6.12min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p>
+            <input type="text" v-model="letter">
+        </p>
+        <p>{{msg}}</p>
+    </div>
+</body>
+</html>
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            letter:"",
+            msg: "请输入一个字母，查看今天的运气..."
+        },
+        watch:{
+            letter(nv,ov){
+            const self = this 
+            this.msg = "正在预测今日运气..."
+                axios.get('http://vue.api.comcto.com/api/password1.php').then(function(res){
+                    if(res.data==1){
+                        self.msg = "大吉"
+                    }else{
+                        self.msg = "大凶"
+                    }
+                })
+            }
+        }
+    })
+</script>

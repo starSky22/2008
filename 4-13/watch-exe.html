@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue2.6.12min.js"></script>
+    <script src="../axios.min.js"></script>
+    <style>
+        p{
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <p>
+            用户名：
+            <input type="text" v-model="name">
+        </p>
+        <p>{{msg}}</p>
+    </div>
+</body>
+</html>
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            name:"",
+            msg:""
+        },
+        watch:{
+            name(nv,ov){
+                let self = this
+                axios.get( 'http://vue.api.comcto.com/api/checkname.php?nv').then(function(res){
+                    if(res.data.erron==0){
+                        self.msg = "用户名被占用"
+                    }else{
+                        self.msg = "ok"
+                    }
+                })
+                this.msg = "正在验证..."
+            }
+        }
+    })
+</script>
